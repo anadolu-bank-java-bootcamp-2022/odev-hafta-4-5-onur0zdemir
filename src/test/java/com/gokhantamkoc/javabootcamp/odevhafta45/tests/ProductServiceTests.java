@@ -19,16 +19,16 @@ public class ProductServiceTests {
     private ProductService productService;
 
     @Before
+
     public void setup() {
         this.productService = new ProductService(
                 new ProductRepository(new DatabaseConnection())
         );
     }
-
     @Test
     public void CreateProductTest() {
         Product product = new Product(
-        3L, "Test Product 1", "Test Product 1"
+                3L, "Test Product 1", "Test Product 1"
         );
 
         productService.createProduct(product);
@@ -41,7 +41,7 @@ public class ProductServiceTests {
         Product existingProduct = productService.getProduct(1L);
         assertThat(existingProduct).isNotEqualTo(null);
         Product updatedProduct = new Product(
-        1L, "Test Product 1", "Test Product 1"
+                1L, "Test Product 1", "Test Product 1"
         );
         productService.updateProduct(updatedProduct);
         Product productAfterUpdate = productService.getProduct(1L);
